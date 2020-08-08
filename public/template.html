@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Idea4Dev || Submit An Idea</title>
+	<link rel="stylesheet" href="/styles.css">
+	<style>
+	/* #f9f9fe bgcolor 
+	#9999ee title and header (with white text) 
+	#5858e3 button color 
+	#aba9bb border */
+		* {
+			box-sizing: border-box;
+		}
+		
+		body {
+			margin: 0;
+			font-family: 'Times New Roman';
+			padding: 0;
+		}
+		
+		header .head-bg {
+			background-color: #9999ee;
+			color: white;	
+			padding: 15px;
+			text-align: center;
+			font-size: 50px;
+			margin-bottom: 10px;
+			display: flex;
+			text-shadow: 1px 2px 2px #000;
+		}
+		header .header-bg-text {
+			text-transform: uppercase;
+			font-family: cursive;
+		}
+		
+		.open-nav {
+			position: relative;
+			width: 50px;
+			height: 50px;
+			padding: 3px;
+			cursor: pointer;
+			transition: .5s;
+			margin-right: 20px;
+			margin-top: 6px;
+		}
+		
+		.open-nav .nav-line {
+			width: 40px;
+			height: 6px;
+			background-color: #fff;
+			margin: 6px 0;
+			box-shadow: 3px 3px 3px rgba(0,0,0,.4);
+		}
+		
+		.nav-body {
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			background-color: rgba(0,0,0,0.9);
+			padding-top: 40px;
+			height: 100%;
+			width: 0;
+			overflow-x: hidden;
+			transition: .5s;
+		}
+		
+		.nav-body a {
+			display: block;
+			font-size: 25px;
+			padding: 15px 10px;
+			text-decoration: none;
+			color: #818181;
+			transition: .3s;
+		}
+		
+		.nav-body a:hover, .nav-body a:active {
+			color: #f1f1f1;
+			background-color: rgba(0,0,0,0.9);
+		}
+		
+		.close-nav {
+			position: absolute;
+			top: 5px;
+			right: 20px;
+			font-size: 36px;
+		}
+		
+		.container {
+			border: 1px solid #aba9bb;
+			margin: 10px 5%;
+			background-color: #f9f9fe;
+			padding: 10px;
+		}
+		
+		.dev-text {
+			color: #5858e3;
+		}
+		
+		form label {
+			display: block;
+			margin: 5px auto;
+		}
+		
+		form .input, form .textarea {
+			width: 100%;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			padding: 8px 10px;
+		}
+		
+		form .submit {
+			width: 100%;
+			padding: 15px;
+			background-color: #5858e3;
+			box-shadow: 3px 3px 3px rgba(0,0,0,.4);
+			border-radius: 5px;
+			border: #99e;
+			cursor: pointer;
+			color: #fff;
+			font-size: 25px;
+			font-family: 'Times New Roman';
+		}
+		
+		form .submit:focus, form .submit:hover {
+			background-color: white;
+			color: #5858e3;
+			font-size: 25px;
+			border: 3px solid #5858e3;
+			cursor: pointer;
+			outline: none;
+		}
+		
+		form .input:focus, form .textarea:focus {
+			outline: none;
+			border: 1px solid #99e;
+		}
+		
+		span.name {
+			margin: 10px 0;
+			padding: 3px;
+			border-radius: 3px;
+			font-weight: bold;
+		}
+		
+		span.id {
+			margin: 10px 15px;
+			border: 1px solid #ccc;
+			padding: 3px;
+			border-radius: 3px;
+		}
+		
+		span.status {
+			padding: 3px;
+			border-radius: 3px;
+		}
+		
+		.body {
+			margin: 10px auto;
+			text-align: justify;
+		}
+		
+		p {
+			text-indent: 1em;
+			margin: 5px 0;
+		}
+		
+		.title {
+			display: inline;
+			color: #9999ee;
+			font-weight: bold;
+			margin: 10px 3px 10px 0;
+			font-size: 25px;
+		}
+		
+		a {
+			text-decoration: none;
+			color: #4c4ceb;
+			cursor: pointer;
+		}
+		
+		footer.footer {
+			background-color: #9999ee;
+			color: white;	
+			padding: 15px;
+			text-align: center;
+			text-shadow: 1px 2px 2px #000;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="head-bg">
+			<div class="nav-body" id="nav-body">
+				<span href="#" class="close-nav" onclick="closeNav()">&times;</span>
+				<a href="#">Home</a>
+				<a href="#find">Find Idea</a>
+				<a href="#about">About</a>
+				<a href="#contact" onclick="closeNav()">Contact</a>
+			</div>
+			<div class="open-nav" onclick="openNav()">
+				<div class="nav-line"></div>
+				<div class="nav-line"></div>
+				<div class="nav-line"></div>
+		</div>
+			<div class="header-bg-text">idea<span class="dev-text">4</span>dev</div>	
+		</div>
+	</header>
+		<div class="container">
+			<p>Hi there, do you have a nice idea you would want to see on the internet? Feel free to submit it by filling the form down below and check back regularly for updates on your idea.</p>
+			
+			<p>Click on the menu icon if you're new here and click on the <a href="about.html"><i>About</i></a> link to learn more.</p>
+		</div>
+		
+		<div class="container">
+			<form>
+				<label for="name">Your Name:</label>
+				<input type="text" name="name" id="name" class="input" placeholder="e.g. John Doe">
+				<label for="title">Idea Title:</label>
+				<input type="text" name="title" id="title" class="input" placeholder="e.g. Request for Platform to..........">
+				<label for="suggestion">Your Suggestion:</label>
+				<textarea name="suggestion" id=suggestion rows="8" class="textarea" placeholder="e.g. Hello dev(s), its would be nice to have a platform where one can go to and (to be continued....)"></textarea>
+				<input type="submit" id="submit" value="Submit Idea" class="submit" />
+			</form>
+		</div>
+		
+		<div class="container">
+			<h3 class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3><span class="status">(open)</span>
+			<div class="body">
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Pariatur, est, illum. Quae eos labore nemo sit, itaque quas ab ea ut ducimus
+					dolore inventore quo voluptatem nobis, ex corporis sint!
+				</p>
+			</div>
+			Submitted by: <span class="name">AYK</span>
+		</div>
+		
+		<footer class="footer">
+			Copyright &copy; IDEA4DEV 2020
+		</footer>
+	<script src="/script.js"></script>
+	<script>
+		function openNav() {
+			document.getElementById('nav-body').style.width = '250px'
+		}
+		
+		function closeNav() {
+			document.getElementById('nav-body').style.width = '0'
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layout/head') %>
+<body>
+
+	<%- include('layout/header') %>
+
+	<div class="container">
+		<p>
+			Hi there, do you have a nice idea you would want to see on the internet? Feel free to submit it by filling the form down below and check back regularly for updates on your idea.
+		</p>
+
+		<p>
+			Click on the menu icon if you're new here and click on the <a href="about.html"><i>About</i></a> link to learn more.
+		</p>
+	</div>
+
+	<div class="container">
+		<form method="post" action="/idea">
+			<label for="name">Your Name:</label>
+			<input type="text" name="name" id="name" class="input" placeholder="e.g. John Doe">
+			<label for="title">Idea Title:</label>
+			<input type="text" name="title" id="title" class="input" placeholder="e.g. Request for Platform to..........">
+			<label for="suggestion">Your Suggestion:</label>
+			<textarea name="suggestion" id=suggestion rows="8" class="textarea" placeholder="e.g. Hello dev(s), its would be nice to have a platform where one can go to and (to be continued....)"></textarea>
+			<input type="submit" id="submit" value="Submit Idea" class="submit" />
+		</form>
+	</div>
+
+	<% if (ideas.length > 0) {
+		%>
+		<% ideas.forEach(idea => {
+			%>
+			<div class="container">
+				<h3 class="title"> <%= idea.title %> </h3><span class="status">(<%= idea.status %>)</span>
+				<div class="body">
+					<p>
+						<%= idea.suggestion %>
+					</p>
+				</div>
+				Submitted by: <span class="name"><%= idea.name %></span><br>
+				<div class="control">
+					<form method="get" action="/close/<%=idea._id%>">
+						<input type="submit" id="close" class="close" value="Close">
+					</form>
+					<form method="get" action="/delete/<%=idea._id%>">
+						<input type="submit" id="delete" class="delete" value="Delete">
+					</form>
+				</div>
+			</div>
+			<%
+		}) %>
+		<%
+	} else {
+		%>
+		<div class="container">
+			Oops! There are currently no ideas to display. Do check back later.
+		</div>
+		<%
+	} %>
+
+	<%- include('layout/footer') %>
+
+	<script src="/js/script.js"></script>
+</body>
+</html>

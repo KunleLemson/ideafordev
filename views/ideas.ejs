@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('layout/head') %>
+<body>
+	
+	<%- include('layout/header') %>
+	
+	<h2 class="container" style="text-align:center;">Dev Ideas</h2>
+
+	<% if (ideas.length > 0) {
+		%>
+		<% ideas.forEach(idea => {
+			%>
+			<div class="container">
+				<h3 class="title"> <%= idea.title %> </h3><span class="status">(<%= idea.status %>)</span>
+				<div class="body">
+					<p>
+						<%= idea.suggestion %>
+					</p>
+				</div>
+				Submitted by: <span class="name"><%= idea.name %></span>
+			</div>
+			<%
+		}) %>
+		<%
+	} else {
+		%>
+		<div class="container">
+			Oops! There are presently no ideas to display. Do check back later.
+		</div>
+		<%
+	} %>
+
+	<%- include('layout/footer') %>
+	
+	<script src="/js/script.js"></script>
+</body>
+</html>
