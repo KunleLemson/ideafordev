@@ -8,7 +8,7 @@ const Idea = require('./models/ideas')
 app.use(express.urlencoded( { extended: true }))
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
-mongoose.connect('mongodb+srv://Ideafordev:ideafordev@ideafordev.tdudz.mongodb.net/ideafordev?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/ideafordev', { useNewUrlParser: true, useUnifiedTopology: true});
 
 
 app.get('/about', (req, res) => {
